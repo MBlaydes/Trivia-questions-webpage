@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // check answers
+            // when the correct answer is pressed, the button will turn green, when incorrect then red
+            window.addEventListener("DOMContentLoaded", (event) => {
+            let correctButton = document.querySelector("#correct")
+            let incorrectButton = document.querySelector("#incorrect")
+            let incorrectButton2 = document.querySelector("#incorrect2")
+
+            correctButton.addEventListener("click", handleCorrectClick);
+            incorrectButton.addEventListener("click", handleIncorrectClick);
+            incorrectButton2.addEventListener("click", handleIncorrect2Click);
+
+            function handleCorrectClick(event){
+                console.log("hello")
+                correct.style.backgroundColor = "green";
+                document.querySelector('#answer1').innerHTML = "Correct!";
+            }
+
+            function handleIncorrectClick(event){
+                console.log("incorrect")
+                incorrect.style.backgroundColor = "red";
+                document.querySelector('#answer1').innerHTML = "Incorrect";
+            }
+
+            function handleIncorrect2Click(event){
+                console.log("incorrect")
+                incorrect2.style.backgroundColor = "red";
+                document.querySelector('#answer1').innerHTML = "Incorrect";
+            }
+            });
+
+            // check free response answer
+            window.addEventListener("DOMContentLoaded", (event) => {
+
+            let checkButton = document.querySelector("#check")
+            checkButton.addEventListener("click", validateForm);
+
+            function validateForm(event) {
+                let input = document.querySelector("#input")
+                if (input.value.toLowerCase() === "briar rose") {
+                    input.style.backgroundColor = "green";
+                    document.querySelector('#answer2').innerHTML = "Correct!";
+                    console.log("hello");
+                    }
+                else {
+                    input.style.backgroundColor = "red";
+                    document.querySelector('#answer2').innerHTML = "Incorrect";
+                    console.log("incorrect");
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice</h2> </div> <h3>What colour was Merriweather turning Sleeping Beauty's dress?</h3>                <hr>
+                <button type="check" id="incorrect" >Purple</button>
+                <button type="check" id="correct" >Blue</button>
+                <button type="check" id="incorrect2" >Pink</button>
+                <p id="answer1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2></div>
+                <h3>What was Sleeping Beauty's name given to her by the fairy godmothers?</h3>
+
+                <form name="form1" method="" action="" onsubmit="validateForm(this)"></form>
+                    <input type="text" id="input" value="" placeholder="Hint: it is two names"></input>
+                    <button type="submit" id="check">Check Answer</button>
+                    <p id="answer2"></p>
+                </form>
+
+        </div>
+    </body>
+</html>
